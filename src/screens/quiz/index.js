@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import {Text, View, TouchableOpacity, Alert} from 'react-native'
+import { connect } from 'react-redux'
 import styles from "./styles"
-import Api from "./../../helpers/api.js"
-import Views from "./../../helpers/views.js"
+import Api from "./../../helpers/api"
+import Views from "./../../helpers/views"
 
 class Quiz extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -25,26 +26,16 @@ class Quiz extends Component {
     }
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      index:0,
-      data: []
-    }
-   }
-
   componentDidMount = async () => {
     const {results}   = await Api.quizme()
-    const {data} = this.state
-    for(let i=0;i<results.length;i++) data.push(results[i])
-    this.setState({data:data})
+    this.setState({quiz:results})
   }
 
   next = async (answer) => {
-    let {data,index}  = this.state
-    const current     = data[index]
+    let {quiz,index}  = this.state
+    const current     = quiz[index]
     current.answered  = answer
-    if(++index==data.length){
+    if(++index==quiz.length){
       this.props.navigation.navigate('Results')
       return
     }
@@ -52,9 +43,10 @@ class Quiz extends Component {
   }
 
   render = () => {
-    const {data,index}  = this.state
-    const current = data[index]
-    if(data.length==0){
+    alert(JSON.stringify(this.props))
+    const {quiz,index}  = this.props
+    const current = quiz[index]
+    if(quiz.length==0){
       return (
         <View style={styles.container}>
           <Text style={styles.txt}>Loading...</Text>
@@ -81,4 +73,24 @@ class Quiz extends Component {
   }
 }
 
-export default Quiz
+// Map State To Props (Redux Store Passes State To Component)
+const mapStateToProps = (state) => {
+  // Redux Store --> Component
+  return {
+    quiz: state.quiz
+  }
+}
+
+// Map Dispatch To Props (Dispatch Actions To Reducers. Reducers Then Modify The Data And Assign It To Your Props)
+const mapDispatchToProps = (dispatch) => {
+  // Action
+  return {
+    // Increase Counter
+    quiz: () => dispatch({type:bool})
+  };
+};
+
+//export default Quiz
+//export default connect()(Quiz)
+export default connect(mapStateToProps,mapDispatchToProps)(Quiz)
+

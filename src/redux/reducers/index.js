@@ -1,7 +1,7 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers } from "redux"
+import quiz from './quiz'
 
-const root = combineReducers({});
+const root = combineReducers({ quiz })
+const store = createStore(root)
 
-const store = createStore(root);
-
-export default store;
+export default store

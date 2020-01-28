@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import {Text, View, TouchableOpacity, FlatList} from 'react-native'
 import styles from "./styles"
-import Views from "./../../helpers/views.js"
+import Views from "./../../helpers/views"
 
 class Results extends Component {
   static navigationOptions = {
     headerLeft: null
   }
 
-  constructor(props) {
-    super(props)
-   }
- 
   componentDidMount = async () => {
   }
 

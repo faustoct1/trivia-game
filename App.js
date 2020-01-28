@@ -1,18 +1,12 @@
 import React from "react";
 import Views from "./src/helpers/views.js"
-//import Home from "./src/screens/home";
-//import { store } from "./src/redux";
-//import { Provider } from "react-redux";
+import { store } from "./src/redux";
+import { Provider } from "react-redux";
 
 export default class App extends React.Component {
-  render = () => {
-    /*
+  render = () => (
       <Provider store={store}>
-        <Home />
+        <Views.Container/>
       </Provider>
-    */
-    return (
-      <Views.Container/>
-    )
-  }
+  )
 }
