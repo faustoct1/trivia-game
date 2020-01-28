@@ -14,6 +14,7 @@ export default StyleSheet.create({
   box: {
     padding:10,
     flex:0.5,
+    borderRadius:5,
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 1,

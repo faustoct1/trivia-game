@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import {Text, View, TouchableOpacity, FlatList} from 'react-native'
 import styles from "./styles"
-
-import { StackActions, NavigationActions } from 'react-navigation';
+import Views from "./../../helpers/views.js"
 
 class Results extends Component {
   static navigationOptions = {
@@ -34,8 +33,7 @@ class Results extends Component {
   );
   
   playAgain = async () => {
-    const resetAction = StackActions.reset({ index: 0, actions: [NavigationActions.navigate({ routeName: 'Quiz' })] })
-    this.props.navigation.dispatch(resetAction);
+    Views.reset(this.props.navigation,'Quiz')
   }
 }
 

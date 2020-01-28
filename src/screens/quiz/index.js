@@ -1,9 +1,30 @@
 import React, { Component } from 'react'
-import {Text, View, TouchableOpacity} from 'react-native'
+import {Text, View, TouchableOpacity, Alert} from 'react-native'
 import styles from "./styles"
 import Api from "./../../helpers/api.js"
+import Views from "./../../helpers/views.js"
 
 class Quiz extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerLeft: (
+        <TouchableOpacity style={{marginLeft:5,padding:10}} onPress={()=>(
+          Alert.alert(
+            'Trivia Challange',
+            'Would you like to restart?',
+            [
+              { text: 'No', onPress: () => null, style: 'cancel' },
+              {text: 'Yes', onPress: () => Views.reset(navigation,'Quiz')},
+            ],
+            {cancelable: false},
+          )
+        )}>
+          <Text style={{color:'#777'}}>Restart</Text>
+        </TouchableOpacity>
+      )
+    }
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -11,7 +32,6 @@ class Quiz extends Component {
       data: []
     }
    }
- 
 
   componentDidMount = async () => {
     const {results}   = await Api.quizme()
