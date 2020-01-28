@@ -16,6 +16,7 @@ export default StyleSheet.create({
   },
   button: {
     margin:10,
+    marginBottom:0,
     padding: 25,
     alignItems: 'center', 
     justifyContent: 'center', 
