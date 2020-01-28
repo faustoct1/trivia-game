@@ -16,18 +16,3 @@ class Home extends Component {
 }
 
 export default Home
-
-/*
-const home = () => (
-  <View style={styles.container}>
-    <Text style={styles.title}>Welcome to the{'\n'}Trivia Challenge!</Text>
-    <Text style={styles.explanation}>You will be presented with 10 True or False questions.</Text>
-    <Text style={styles.explanation}>Can you score 100%?</Text>
-    <TouchableOpacity style={styles.button} onPress={()=>this.props.navigation.navigate('Quiz')}>
-      <Text style={styles.buttontitle}>BEGIN</Text>
-    </TouchableOpacity>
-  </View>
-)
-
-export default home
-*/
