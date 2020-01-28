@@ -34,8 +34,9 @@ export default StyleSheet.create({
     fontSize: 24
   },
   item:{
-    flexDirection:'row',
-    flex:1
+    flex:1,
+    justifyContent:'center',
+    flexDirection:'row'
   }
 });
 
