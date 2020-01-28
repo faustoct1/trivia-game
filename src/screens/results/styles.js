@@ -11,7 +11,8 @@ export default StyleSheet.create({
   title:{
     textAlign:'center',
     fontWeight:'bold',
-    fontSize:24
+    fontSize:24,
+    marginBottom:5
   },
   button: {
     margin:10,
@@ -30,6 +31,10 @@ export default StyleSheet.create({
     fontWeight: 'bold', 
     color: '#fff', 
     fontSize: 24
+  },
+  item:{
+    flexDirection:'row',
+    flex:1
   }
 });
 

@@ -26,6 +26,11 @@ class Quiz extends Component {
     }
   }
 
+  state = {
+    index:0,
+    quiz:[]
+  }
+
   componentDidMount = async () => {
     const {results}   = await Api.quizme()
     this.setState({quiz:results})
@@ -36,15 +41,14 @@ class Quiz extends Component {
     const current     = quiz[index]
     current.answered  = answer
     if(++index==quiz.length){
-      this.props.navigation.navigate('Results')
+      this.props.navigation.navigate('Results',{quiz:quiz})
       return
     }
     this.setState({index:index})
   }
 
   render = () => {
-    alert(JSON.stringify(this.props))
-    const {quiz,index}  = this.props
+    const {quiz,index}  = this.state
     const current = quiz[index]
     if(quiz.length==0){
       return (
@@ -61,10 +65,10 @@ class Quiz extends Component {
         </View>
         <Text>{index+1} of 10</Text>
         <View style={styles.buttons}>
-          <TouchableOpacity style={[styles.button,styles.false]} onPress={()=>this.next(false)}>
+          <TouchableOpacity style={[styles.button,styles.false]} onPress={()=>this.next('False')}>
             <Text style={styles.buttontitle}>False</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.button,styles.true]} onPress={()=>this.next(true)}>
+          <TouchableOpacity style={[styles.button,styles.true]} onPress={()=>this.next('True')}>
             <Text style={styles.buttontitle}>True</Text>
           </TouchableOpacity>
         </View>
@@ -90,7 +94,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-//export default Quiz
+export default Quiz
 //export default connect()(Quiz)
-export default connect(mapStateToProps,mapDispatchToProps)(Quiz)
+//export default connect(mapStateToProps,mapDispatchToProps)(Quiz)
 
