@@ -6,17 +6,19 @@ export default StyleSheet.create({
     padding: 5
   },
   container: {
+    flex:1,
     alignItems: "center",
     justifyContent: "center"
   },
   box: {
     justifyContent: "center",
     alignItems: "center",
-    border: "solid 1px black",
+    borderWidth: 1,
+    borderColor: "#000",
     width: 400,
     height: 400
   },
   question: {
-    textAlign: center
+    textAlign: "center"
   }
 });
