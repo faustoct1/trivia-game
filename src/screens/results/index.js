@@ -41,9 +41,9 @@ class Results extends Component {
 
   renderItem = ({ item }) => {
     return (
-      <View style={[styles.item]}>
-        <AntDesign name={item.iconname} size={32} color={item.iconcolor} />
-        <Text style={{margin:5,marginBottom:15, flexWrap:'wrap'}}>{item.question}</Text>
+      <View style={styles.item}>
+        <AntDesign style={{top:7}} name={item.iconname} size={32} color={item.iconcolor} />
+        <Text style={{width:'85%',margin:5,marginBottom:15, flexWrap:'wrap'}}>{item.question}</Text>
       </View>
     )
   }
