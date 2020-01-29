@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import {ActivityIndicator, Text, View, TouchableOpacity, Alert} from 'react-native'
+import {Text, View, TouchableOpacity, Alert} from 'react-native'
 import { connect } from 'react-redux'
 import styles from "./styles"
 import Views from "./../../helpers/views"
 import Loading from "./../loading"
 import * as quizactions from './../../redux/actions/quiz'
+
+const he = require('he')
 
 class Quiz extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -55,7 +57,7 @@ class Quiz extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>{current.category}</Text>
         <View style={styles.box}>
-          <Text style={styles.txt}>{current.question}</Text>
+          <Text style={styles.txt}>{he.decode(current.question)}</Text>
         </View>
         <Text>{index+1} of 10</Text>
         <View style={styles.buttons}>

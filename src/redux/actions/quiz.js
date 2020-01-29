@@ -1,7 +1,3 @@
-import { Alert } from "react-native"
-
-//import Api from "./../../helpers/api"
-//Api.quizme()
 export const load = () => {
   return (dispatch,getState) => {
     dispatch({type:'START'})
