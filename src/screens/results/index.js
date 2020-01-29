@@ -5,8 +5,6 @@ import styles from "./styles"
 import Views from "./../../helpers/views"
 import Loading from "./../loading"
 
-const he = require('he')
-
 class Results extends Component {
   static navigationOptions = {
     headerLeft: null,
@@ -16,7 +14,7 @@ class Results extends Component {
     return (
       <View style={styles.item}>
         <AntDesign name={item.iconname} size={32} color={item.iconcolor} />
-        <Text style={{width:'85%',margin:5,marginBottom:15, flexWrap:'wrap'}}>{he.decode(item.question)}</Text>
+        <Text style={{width:'85%',margin:5,marginBottom:15, flexWrap:'wrap'}}>{item.question}</Text>
       </View>
     )
   }
