@@ -12,3 +12,6 @@ Project setup and run
   * ios `https://apps.apple.com/br/app/expo-client/id982107779`
 * run `expo start` to run the project
 * scan qrcode on your phone
+
+### Troubleshooting
+call `./clear.sh` to clear cache and remove node_modules and reinstall.
