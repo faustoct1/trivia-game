@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import {Text, View, TouchableOpacity, FlatList} from 'react-native'
+import {ActivityIndicator, Text, View, TouchableOpacity, FlatList} from 'react-native'
 import { AntDesign } from "@expo/vector-icons"
 import styles from "./styles"
 import Views from "./../../helpers/views"
+import Loading from "./../loading"
 
 class Results extends Component {
   static navigationOptions = {
@@ -23,11 +24,7 @@ class Results extends Component {
     const {list}  = quiz
 
     if(list.length==0){
-      return (
-        <View style={styles.container}>
-          <Text style={styles.txt}>Computing results...</Text>
-        </View>
-      )
+      return <Loading />
     }
 
     const {score} = quiz

@@ -8,6 +8,10 @@ export default StyleSheet.create({
     justifyContent: "space-between",
     flexDirection:'column',
   },
+  horizontal:{
+    flex: 1,
+    justifyContent: 'center',
+  },
   title:{
     fontWeight:'bold'
   },

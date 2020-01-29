@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {Text, View, TouchableOpacity, Alert} from 'react-native'
+import {ActivityIndicator, Text, View, TouchableOpacity, Alert} from 'react-native'
 import { connect } from 'react-redux'
 import styles from "./styles"
 import Views from "./../../helpers/views"
-
+import Loading from "./../loading"
 import * as quizactions from './../../redux/actions/quiz'
 
 class Quiz extends Component {
@@ -48,11 +48,7 @@ class Quiz extends Component {
     const current = list[index]
     
     if(list.length==0){
-      return (
-        <View style={styles.container}>
-          <Text style={styles.txt}>Loading...</Text>
-        </View>
-      )
+      return <Loading />
     }
 
     return (
